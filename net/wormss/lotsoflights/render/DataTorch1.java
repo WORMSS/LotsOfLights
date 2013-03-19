@@ -19,11 +19,15 @@ final class DataTorch1
 	private static final Point p_topLeftInner		= new Point(.154, .622, .027);
 	private static final Point p_bottomLeftInner	= new Point(.26, .125, .132);
 	private static final Point p_bottomLeft			= new Point(.159, 0, .159);
+	private static final Point p_topLeftInset		= p_topLeftInner.clone().offsetZ(.1);
+	private static final Point p_bottomLeftInset	= p_bottomLeftInner.clone().offsetZ(.1);
 	
 	private static final Point p_topRight			= p_topLeft.clone().flipX();
 	private static final Point p_topRightInner		= p_topLeftInner.clone().flipX();
 	private static final Point p_bottomRightInner	= p_bottomLeftInner.clone().flipX();
 	private static final Point p_bottomRight		= p_bottomLeft.clone().flipX();
+	private static final Point p_topRightInset		= p_topRightInner.clone().offsetZ(.1);
+	private static final Point p_bottomRightInset	= p_bottomRightInner.clone().offsetZ(.1);
 	
 	private static final Point p_topPoint			= new Point(.5, 1, .5);
 	private static final Point p_bottomLeftInvert	= p_bottomLeft.clone().flipZ();
@@ -49,16 +53,36 @@ final class DataTorch1
 		p_bottomRightInner,
 		p_bottomRight,
 		p_bottomLeft);
-	private static final PointSet ps_sGlass	= new PointSet(
+	private static final PointSet ps_sInsetLeft = new PointSet(
 		p_topLeftInner,
+		p_topLeftInset,
+		p_bottomLeftInset,
+		p_bottomLeftInner);
+	private static final PointSet ps_sInsetRight = new PointSet(
+		p_topRightInset,
 		p_topRightInner,
 		p_bottomRightInner,
+		p_bottomRightInset);
+	private static final PointSet ps_sInsetTop = new PointSet(
+		p_topLeftInner,
+		p_topRightInner,
+		p_topRightInset,
+		p_topLeftInset);
+	private static final PointSet ps_sInsetBottom = new PointSet(
+		p_bottomLeftInset,
+		p_bottomRightInset,
+		p_bottomRightInner,
 		p_bottomLeftInner);
+	private static final PointSet ps_sGlass	= new PointSet(
+		p_topLeftInset,
+		p_topRightInset,
+		p_bottomRightInset,
+		p_bottomLeftInset);
 	private static final PointSet ps_top	= new PointSet(
-		p_topLeft,
 		p_topPoint,
 		p_topPoint,
-		p_topRight);
+		p_topRight,
+		p_topLeft);
 	private static final PointSet ps_bottom	= new PointSet(
 		p_bottomLeft,
 		p_bottomRight,
@@ -69,14 +93,18 @@ final class DataTorch1
 	private static final Panel pan_sRight = new Panel(ps_sRight, metal);
 	private static final Panel pan_sTop = new Panel(ps_sTop, metal);
 	private static final Panel pan_sBottom = new Panel(ps_sBottom, metal);
+	private static final Panel pan_sInsetLeft = new Panel(ps_sInsetLeft, metal);
+	private static final Panel pan_sInsetRight = new Panel(ps_sInsetRight, metal);
+	private static final Panel pan_sInsetTop = new Panel(ps_sInsetTop, metal);
+	private static final Panel pan_sInsetBottom = new Panel(ps_sInsetBottom, metal);
 	private static final Panel pan_sGlass = new Panel(ps_sGlass, glass);
 	private static final Panel pan_top = new Panel(ps_top, metal);
 	
 	
 	static final Panel bottom = new Panel(ps_bottom, metal);
 	static final PanelCollection north = new PanelCollection(
-		pan_sLeft, pan_sRight, pan_sTop, pan_sBottom, pan_top, pan_sGlass
-	);
+		pan_sLeft, pan_sRight, pan_sTop, pan_sBottom, pan_top, pan_sInsetLeft,
+		pan_sInsetRight, pan_sInsetTop, pan_sInsetBottom, pan_sGlass);
 	static final PanelCollection east = north.clone().rotate90();
 	static final PanelCollection south = east.clone().rotate90();
 	static final PanelCollection west = south.clone().rotate90();

@@ -129,7 +129,11 @@ class Point
 	}
 	
 	Point flipX() { x = 1-x; return this; }
+	Point flipY() { y = 1-y; return this; }
 	Point flipZ() { z = 1-z; return this; }
+	Point offsetX(double x) { this.x+=x; return this; }
+	Point offsetY(double y) { this.y+=y; return this; }
+	Point offsetZ(double z) { this.z+=z; return this; }
 	Point rotate()
 	{
 		double tmp = x;
