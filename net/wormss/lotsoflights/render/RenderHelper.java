@@ -24,6 +24,7 @@ class RenderHelper
 		RenderHelper.z = z;
 		u = iconIndex & 0xF;
 		v = iconIndex >> 4 & 0xF;
+		tess.setBrightness(255);
 	}
 	
 	static void tessUV(Point point, UV uv)
@@ -33,21 +34,7 @@ class RenderHelper
 			y + point.y,
 			z + point.z,
 			NumberUtil.divHex(u + uv.u),
-			NumberUtil.divHex(v + uv.v)
-		);
-	}
-	
-	static void tessUV(PanelCollection panelSet)
-	{
-		for ( Panel panel : panelSet.panels )
-		{
-			tessUV(panel);
-		}
-	}
-	
-	static void tessUV(Panel panel)
-	{
-		tessUV(panel.pointSet, panel.uvSet);
+			NumberUtil.divHex(v + uv.v));
 	}
 	
 	static void tessUV(PointSet pointSet, UVSet uvSet)
@@ -58,4 +45,16 @@ class RenderHelper
 		tessUV(pointSet.get3(), uvSet.get3());
 	}
 	
+	static void tessUV(Panel panel)
+	{
+		tessUV(panel.pointSet, panel.uvSet);
+	}
+	
+	static void tessUV(PanelCollection panelSet)
+	{
+		for ( Panel panel : panelSet.panels )
+		{
+			tessUV(panel);
+		}
+	}
 }
