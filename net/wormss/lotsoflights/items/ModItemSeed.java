@@ -1,7 +1,9 @@
 package net.wormss.lotsoflights.items;
 
 import net.minecraft.block.Block;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemSeeds;
+import net.wormss.lotsoflights.data.ModReferences;
 import net.wormss.lotsoflights.proxy.CommonProxy;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
@@ -23,6 +25,12 @@ public class ModItemSeed extends ItemSeeds
 		setItemName(internalName);
 		LanguageRegistry.addName(this, humanName);
 		return this;
+	}
+	
+	@Override
+	public Item setItemName(String internalName)
+	{
+		return super.setItemName(ModReferences.PREFIX_ITEM + internalName);
 	}
 	
 	@Override

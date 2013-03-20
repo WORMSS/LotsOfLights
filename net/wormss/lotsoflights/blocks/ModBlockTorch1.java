@@ -1,7 +1,5 @@
 package net.wormss.lotsoflights.blocks;
 
-import java.util.Random;
-
 import net.minecraft.block.material.Material;
 import net.wormss.lotsoflights.render.RenderBlockTorch1;
 

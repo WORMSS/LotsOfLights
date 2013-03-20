@@ -8,11 +8,14 @@ public final class ModReferences
 	public static final String	VERSION			= "1.4.7.0";
 	
 	// Setup of Proxies
-	public static final String	COMMON_PROXY	= "net.wormss.lotsoflights.proxy.CommonProxy";
-	public static final String	CLIENT_PROXY	= "net.wormss.lotsoflights.proxy.ClientProxy";
+	public static final String	PROXY_COMMON	= "net.wormss.lotsoflights.proxy.CommonProxy";
+	public static final String	PROXY_CLIENT	= "net.wormss.lotsoflights.proxy.ClientProxy";
 	
 	// Setup Interal references
-	public static final String	BLOCK_PREFIX	= "modLotsOfLightsBlock";
-	public static final String	ITEM_PREFIX		= "modLotsOfLightsItem";
+	public static final String	PREFIX_BLOCK	= "modLotsOfLightsBlock";
+	public static final String	PREFIX_ITEM		= "modLotsOfLightsItem";
+	
+	// Setup Internal names
+	public static final String	NAME_TORCH_1	= "torch1";
 	
 }

@@ -1,23 +1,22 @@
 package net.wormss.lotsoflights;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockSand;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.common.MinecraftForge;
+import net.wormss.lotsoflights.blocks.ModBlocks;
+import net.wormss.lotsoflights.data.ModConfiguration;
 import net.wormss.lotsoflights.data.ModReferences;
 import net.wormss.lotsoflights.items.ModItems;
 import net.wormss.lotsoflights.proxy.CommonProxy;
-import net.wormss.lotsoflights.blocks.ModBlocks;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.Mod.Instance;
+import cpw.mods.fml.common.Mod.PreInit;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
+import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.registry.GameRegistry;
 
-//,dependencies = "after:IC2"
 @Mod(modid = ModReferences.ID, name = ModReferences.NAME, version = ModReferences.VERSION)
 @NetworkMod(clientSideRequired = true, serverSideRequired = false)
 public class LotsOfLights
@@ -26,8 +25,14 @@ public class LotsOfLights
 	public static LotsOfLights	instance;
 
 	// Says where the client and server 'proxy' code is loaded.
-	@SidedProxy(clientSide = ModReferences.CLIENT_PROXY, serverSide = ModReferences.COMMON_PROXY)
+	@SidedProxy(clientSide = ModReferences.PROXY_CLIENT, serverSide = ModReferences.PROXY_COMMON)
 	public static CommonProxy	proxy;
+	
+	@PreInit
+	public void preInit(FMLPreInitializationEvent __e)
+	{
+		ModConfiguration.init(__e.getModConfigurationDirectory());
+	}
 	
 	@Init
 	public void init(FMLInitializationEvent __e)
@@ -35,6 +40,7 @@ public class LotsOfLights
 		proxy.registerRenderers();
 		
 		ModBlocks.register();
+		ModItems.register();
 		
 		_addDebugRecipes();
 		_addRecipies();
