@@ -1,6 +1,7 @@
 package net.wormss.lotsoflights;
 
 import net.minecraft.block.Block;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.wormss.lotsoflights.blocks.ModBlocks;
 import net.wormss.lotsoflights.data.ModConfiguration;
@@ -48,7 +49,7 @@ public class LotsOfLights
 
 	private void _addRecipies()
 	{
-		ItemStack sLight1 = new ItemStack(ModBlocks.torch1, 64);
+		ItemStack sLight1	= new ItemStack(ModBlocks.torch1, 64);
 		
 		GameRegistry.addRecipe(sLight1, "AA", 'A', Block.dirt);
 	}
@@ -56,10 +57,16 @@ public class LotsOfLights
 	private void _addDebugRecipes()
 	{
 		ItemStack sMoreDirt = new ItemStack(Block.dirt, 64);
+		ItemStack sFlint	= new ItemStack(Item.flintAndSteel);
+		ItemStack sBench	= new ItemStack(Block.workbench);
+		ItemStack sTorches	= new ItemStack(Block.torchWood, 64);
 		
 		try
 		{
 			GameRegistry.addRecipe(sMoreDirt,	"A", 'A', Block.dirt);
+			GameRegistry.addRecipe(sFlint, "AA", "A ", 'A', Block.dirt);
+			GameRegistry.addRecipe(sBench, "AA", "AA", 'A', Block.dirt);
+			GameRegistry.addRecipe(sTorches, "A","A","A", 'A', Block.dirt);
 		}
 		catch ( Exception __err)
 		{

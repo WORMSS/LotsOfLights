@@ -23,7 +23,7 @@ class PanelCollection
 	{
 		for ( Panel panel : panels )
 		{
-			panel.pointSet.rotate90();
+			panel.rotate90();
 		}
 		return this;
 	}
@@ -106,6 +106,12 @@ class Panel
 	{
 		this.pointSet = pointSet;
 		this.uvSet = uvSet;
+	}
+	
+	Panel rotate90()
+	{
+		pointSet.rotate90();
+		return this;
 	}
 	
 	@Override

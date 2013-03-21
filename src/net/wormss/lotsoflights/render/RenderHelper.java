@@ -24,7 +24,7 @@ class RenderHelper
 		RenderHelper.z = z;
 		u = iconIndex & 0xF;
 		v = iconIndex >> 4 & 0xF;
-		tess.setBrightness(255);
+		setBrightness(255);
 	}
 	
 	static void tessUV(Point point, UV uv)
@@ -56,5 +56,10 @@ class RenderHelper
 		{
 			tessUV(panel);
 		}
+	}
+
+	static void setBrightness(int value)
+	{
+		tess.setBrightness(value);
 	}
 }
