@@ -26,7 +26,7 @@ public class RenderBlockTorch1 implements ISimpleBlockRenderingHandler
 		int metadata;
 		
 		metadata = world.getBlockMetadata(x, y, z);
-		RenderHelper.setup(x, y, z, block.getBlockTexture(world, x, y, z, 0));
+		RenderHelper.setup(x, y, z);
 		
 		RenderHelper.tessUV(DataTorch1.north);
 		RenderHelper.tessUV(DataTorch1.east);

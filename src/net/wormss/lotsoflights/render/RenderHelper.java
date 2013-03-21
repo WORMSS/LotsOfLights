@@ -9,10 +9,8 @@ class RenderHelper
 	private static int x;
 	private static int y;
 	private static int z;
-	private static double u;
-	private static double v;
 	
-	static void setup(int x, int y, int z, int iconIndex)
+	static void setup(int x, int y, int z)
 	{
 		if ( tess == null )
 		{
@@ -22,8 +20,6 @@ class RenderHelper
 		RenderHelper.x = x;
 		RenderHelper.y = y;
 		RenderHelper.z = z;
-		u = iconIndex & 0xF;
-		v = iconIndex >> 4 & 0xF;
 		setBrightness(255);
 	}
 	
@@ -33,8 +29,7 @@ class RenderHelper
 			x + point.x,
 			y + point.y,
 			z + point.z,
-			NumberUtil.divHex(u + uv.u),
-			NumberUtil.divHex(v + uv.v));
+			uv.u, uv.v);
 	}
 	
 	static void tessUV(PointSet pointSet, UVSet uvSet)

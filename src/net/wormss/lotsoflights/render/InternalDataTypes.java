@@ -97,6 +97,18 @@ class UVSet
 	UV get3() { return uv[3]; }
 }
 
+class UVRect extends UVSet
+{
+	UVRect(double x, double y, double width, double height)
+	{
+		super(
+			new UV(x, y),
+			new UV(x + width, y),
+			new UV(x + width, y + height),
+			new UV(x, y + height));
+	}
+}
+
 class Panel
 {
 	final PointSet pointSet;

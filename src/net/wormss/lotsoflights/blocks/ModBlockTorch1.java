@@ -77,8 +77,7 @@ public class ModBlockTorch1 extends ModBlock
 	@Override
 	public String getTextureFile()
 	{
-		return super.getTextureFile();
-		//return ModReferences.TEXTURE_TORCH1;
+		return ModReferences.TEXTURE_TORCH1;
 	}
 	
 }

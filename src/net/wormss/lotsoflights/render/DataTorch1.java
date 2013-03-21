@@ -3,17 +3,8 @@ package net.wormss.lotsoflights.render;
 
 final class DataTorch1
 {
-	private static final UVSet metal =  new UVSet(
-		new UV(0, 0),
-		new UV(1, 0),
-		new UV(1, 1),
-		new UV(0, 1));
-	
-	private static final UVSet glass = new UVSet(
-		new UV(1, 0),
-		new UV(2, 0),
-		new UV(2, 1),
-		new UV(1, 1));
+	private static final UVSet metal	= new UVRect(0, 0, .5, 1);
+	private static final UVSet glass	= new UVRect(.5, 0, .5, 1);
 	
 	private static final Point p_topLeft			= new Point(0, .747, 0);
 	private static final Point p_topLeftInner		= new Point(.154, .622, .027);
