@@ -23,25 +23,24 @@ public class RenderBlockTorch1 implements ISimpleBlockRenderingHandler
 	@Override
 	public boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer)
 	{
-		int metadata;
+		TessellatorWrapper.setPosition(x, y, z);
+		TessellatorWrapper.setBrightness(1);
 		
-		metadata = world.getBlockMetadata(x, y, z);
-		RenderHelper.setup(x, y, z);
-		
-		RenderHelper.tessUV(RenderBlockTorch1Data.north);
-		RenderHelper.tessUV(RenderBlockTorch1Data.east);
-		RenderHelper.tessUV(RenderBlockTorch1Data.south);
-		RenderHelper.tessUV(RenderBlockTorch1Data.west);
-		RenderHelper.tessUV(RenderBlockTorch1Data.bottom);
-		
-		if ( metadata != 1 )
+		TessellatorWrapper.tessUV(RenderBlockTorch1Data.north);
+		TessellatorWrapper.tessUV(RenderBlockTorch1Data.east);
+		TessellatorWrapper.tessUV(RenderBlockTorch1Data.south);
+		TessellatorWrapper.tessUV(RenderBlockTorch1Data.west);
+		TessellatorWrapper.tessUV(RenderBlockTorch1Data.bottom);
+
+		if ( world.getBlockMetadata(x, y, z) != 1 )
 		{
-			RenderHelper.setBrightness(0);
+			TessellatorWrapper.setBrightness(0);
 		}
-		RenderHelper.tessUV(RenderBlockTorch1Data.northGlass);
-		RenderHelper.tessUV(RenderBlockTorch1Data.eastGlass);
-		RenderHelper.tessUV(RenderBlockTorch1Data.southGlass);
-		RenderHelper.tessUV(RenderBlockTorch1Data.westGlass);
+		
+		TessellatorWrapper.tessUV(RenderBlockTorch1Data.northGlass);
+		TessellatorWrapper.tessUV(RenderBlockTorch1Data.eastGlass);
+		TessellatorWrapper.tessUV(RenderBlockTorch1Data.southGlass);
+		TessellatorWrapper.tessUV(RenderBlockTorch1Data.westGlass);
 		
 		return true;
 	}

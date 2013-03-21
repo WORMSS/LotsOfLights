@@ -3,29 +3,29 @@ package net.wormss.lotsoflights.render;
 import net.minecraft.client.renderer.Tessellator;
 import net.wormss.utils.NumberUtil;
 
-class RenderHelper
+class TessellatorWrapper
 {
 	private static Tessellator tess;
 	private static int x;
 	private static int y;
 	private static int z;
 	
-	static void setup(int x, int y, int z)
+	private static Tessellator tess()
 	{
-		if ( tess == null )
-		{
-			tess = Tessellator.instance;
-		}
-		
-		RenderHelper.x = x;
-		RenderHelper.y = y;
-		RenderHelper.z = z;
-		setBrightness(255);
+		if ( tess == null ) tess = Tessellator.instance;
+		return tess;
+	}
+	
+	static void setPosition(int x, int y, int z)
+	{
+		TessellatorWrapper.x = x;
+		TessellatorWrapper.y = y;
+		TessellatorWrapper.z = z;
 	}
 	
 	static void tessUV(Point point, UV uv)
 	{
-		tess.addVertexWithUV(
+		tess().addVertexWithUV(
 			x + point.x,
 			y + point.y,
 			z + point.z,
@@ -53,8 +53,8 @@ class RenderHelper
 		}
 	}
 
-	static void setBrightness(int value)
+	static void setBrightness(float value)
 	{
-		tess.setBrightness(value);
+		tess().setBrightness((int)(value * 255));
 	}
 }
