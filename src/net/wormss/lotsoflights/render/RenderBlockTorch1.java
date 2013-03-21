@@ -28,20 +28,20 @@ public class RenderBlockTorch1 implements ISimpleBlockRenderingHandler
 		metadata = world.getBlockMetadata(x, y, z);
 		RenderHelper.setup(x, y, z);
 		
-		RenderHelper.tessUV(DataTorch1.north);
-		RenderHelper.tessUV(DataTorch1.east);
-		RenderHelper.tessUV(DataTorch1.south);
-		RenderHelper.tessUV(DataTorch1.west);
-		RenderHelper.tessUV(DataTorch1.bottom);
+		RenderHelper.tessUV(RenderBlockTorch1Data.north);
+		RenderHelper.tessUV(RenderBlockTorch1Data.east);
+		RenderHelper.tessUV(RenderBlockTorch1Data.south);
+		RenderHelper.tessUV(RenderBlockTorch1Data.west);
+		RenderHelper.tessUV(RenderBlockTorch1Data.bottom);
 		
 		if ( metadata != 1 )
 		{
 			RenderHelper.setBrightness(0);
 		}
-		RenderHelper.tessUV(DataTorch1.northGlass);
-		RenderHelper.tessUV(DataTorch1.eastGlass);
-		RenderHelper.tessUV(DataTorch1.southGlass);
-		RenderHelper.tessUV(DataTorch1.westGlass);
+		RenderHelper.tessUV(RenderBlockTorch1Data.northGlass);
+		RenderHelper.tessUV(RenderBlockTorch1Data.eastGlass);
+		RenderHelper.tessUV(RenderBlockTorch1Data.southGlass);
+		RenderHelper.tessUV(RenderBlockTorch1Data.westGlass);
 		
 		return true;
 	}

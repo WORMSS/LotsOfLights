@@ -1,7 +1,7 @@
 package net.wormss.lotsoflights.render;
 
 
-final class DataTorch1
+final class RenderBlockTorch1Data
 {
 	private static final UVSet metal	= new UVRect(0, 0, .5, 1);
 	private static final UVSet glass	= new UVRect(.5, 0, .5, 1);
