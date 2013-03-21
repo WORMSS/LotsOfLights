@@ -32,10 +32,4 @@ public class ModItemSeed extends ItemSeeds
 	{
 		return super.setItemName(ModReferences.PREFIX_ITEM + internalName);
 	}
-	
-	@Override
-	public String getTextureFile()
-	{
-		return CommonProxy.ITEMS_PNG;
-	}
 }

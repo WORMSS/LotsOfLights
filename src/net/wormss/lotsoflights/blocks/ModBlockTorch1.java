@@ -6,14 +6,14 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.wormss.lotsoflights.data.ModReferences;
 import net.wormss.lotsoflights.render.RenderBlockTorch1;
 
 public class ModBlockTorch1 extends ModBlock
 {
-	public ModBlockTorch1(int id, int iconIndex, Material material)
+	public ModBlockTorch1(int id, Material material)
 	{
-		super(id, iconIndex, material);
-		setLightValue(1);
+		super(id, material);
 	}
 	
 	@Override
@@ -72,6 +72,13 @@ public class ModBlockTorch1 extends ModBlock
 	public boolean renderAsNormalBlock()
 	{
 		return false;
+	}
+	
+	@Override
+	public String getTextureFile()
+	{
+		return super.getTextureFile();
+		//return ModReferences.TEXTURE_TORCH1;
 	}
 	
 }

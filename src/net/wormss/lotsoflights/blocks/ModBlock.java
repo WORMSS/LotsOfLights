@@ -13,6 +13,11 @@ public class ModBlock extends Block
 		super(id, iconIndex, material);
 	}
 	
+	public ModBlock(int id, Material material)
+	{
+		super(id, material);
+	}
+
 	public ModBlock setBlockName(String internalName, String humanName)
 	{
 		setBlockName(internalName);
@@ -29,7 +34,7 @@ public class ModBlock extends Block
 	@Override
 	public String getTextureFile()
 	{
-		return CommonProxy.BLOCK_PNG;
+		return ModReferences.TEXTURE_BLOCKS;
 	}
 
 }
