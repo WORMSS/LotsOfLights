@@ -17,6 +17,7 @@ public final class ModReferences
 	
 	// Setup Internal names
 	public static final String	NAME_TORCH_1	= "torch1";
+	public static final String	NAME_POLE		= "pole";
 	
 	// Setup of Textures
 	private static final String	TR				= "/mods/" + ID + "/textures/";

@@ -2,6 +2,7 @@ package net.wormss.lotsoflights.proxy;
 
 import net.minecraftforge.client.MinecraftForgeClient;
 import net.wormss.lotsoflights.data.ModReferences;
+import net.wormss.lotsoflights.render.RenderBlockPole;
 import net.wormss.lotsoflights.render.RenderBlockTorch1;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 
@@ -14,7 +15,10 @@ public class ClientProxy extends CommonProxy
 		MinecraftForgeClient.preloadTexture(ModReferences.TEXTURE_TORCH1);
 		
 		RenderBlockTorch1.renderID = RenderingRegistry.getNextAvailableRenderId();
+		RenderBlockPole.renderID = RenderingRegistry.getNextAvailableRenderId();
+		
 		RenderingRegistry.registerBlockHandler(new RenderBlockTorch1());
+		RenderingRegistry.registerBlockHandler(new RenderBlockPole());
 	}
 
 }

@@ -21,6 +21,7 @@ public class ModConfiguration
 			config.load();
 			
 			getBlock(ModReferences.NAME_TORCH_1);
+			getBlock(ModReferences.NAME_POLE);
 			
 		}
 		catch ( Exception err )

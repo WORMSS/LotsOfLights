@@ -50,8 +50,10 @@ public class LotsOfLights
 	private void _addRecipies()
 	{
 		ItemStack sLight1	= new ItemStack(ModBlocks.torch1, 64);
+		ItemStack sPole		= new ItemStack(ModBlocks.pole, 64);
 		
 		GameRegistry.addRecipe(sLight1, "AA", 'A', Block.dirt);
+		GameRegistry.addRecipe(sPole, "A", "A", "A", 'A', Block.dirt);
 	}
 
 	private void _addDebugRecipes()
@@ -64,9 +66,9 @@ public class LotsOfLights
 		try
 		{
 			GameRegistry.addRecipe(sMoreDirt,	"A", 'A', Block.dirt);
-			GameRegistry.addRecipe(sFlint, "AA", "A ", 'A', Block.dirt);
-			GameRegistry.addRecipe(sBench, "AA", "AA", 'A', Block.dirt);
-			GameRegistry.addRecipe(sTorches, "A","A","A", 'A', Block.dirt);
+			GameRegistry.addRecipe(sFlint,		"AA", "A ", 'A', Block.dirt);
+			GameRegistry.addRecipe(sBench,		"AA", "AA", 'A', Block.dirt);
+			GameRegistry.addRecipe(sTorches,	"A","A", 'A', Block.dirt);
 		}
 		catch ( Exception __err)
 		{

@@ -90,15 +90,15 @@ final class RenderBlockTorch1Data
 	private static final Panel pan_sInsetBottom = new Panel(ps_sInsetBottom, metal);
 	private static final Panel pan_top = new Panel(ps_top, metal);
 	
-	static final Panel northGlass = new Panel(ps_sGlass, glass);
-	static final Panel eastGlass = northGlass.clone().rotate90();
-	static final Panel southGlass = eastGlass.clone().rotate90();
-	static final Panel westGlass = southGlass.clone().rotate90();
-	static final Panel bottom = new Panel(ps_bottom, metal);
-	static final PanelCollection north = new PanelCollection(
+	static final Panel northGlass	= new Panel(ps_sGlass, glass);
+	static final Panel eastGlass	= northGlass.clone().rotate90();
+	static final Panel southGlass	= eastGlass.clone().rotate90();
+	static final Panel westGlass	= southGlass.clone().rotate90();
+	static final Panel bottom		= new Panel(ps_bottom, metal);
+	static final PanelCollection north	= new PanelCollection(
 		pan_sLeft, pan_sRight, pan_sTop, pan_sBottom, pan_top, pan_sInsetLeft,
 		pan_sInsetRight, pan_sInsetTop, pan_sInsetBottom);
-	static final PanelCollection east = north.clone().rotate90();
-	static final PanelCollection south = east.clone().rotate90();
-	static final PanelCollection west = south.clone().rotate90();
+	static final PanelCollection east	= north.clone().rotate90();
+	static final PanelCollection south	= east.clone().rotate90();
+	static final PanelCollection west	= south.clone().rotate90();
 }
