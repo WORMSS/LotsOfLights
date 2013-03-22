@@ -25,7 +25,7 @@ public class RenderBlockTorch1 implements ISimpleBlockRenderingHandler
 	{
 		TessellatorWrapper.setPosition(x, y, z);
 		TessellatorWrapper.setBrightness(1);
-		
+		TessellatorWrapper.disableColour();
 		TessellatorWrapper.tessUV(RenderBlockTorch1Data.north);
 		TessellatorWrapper.tessUV(RenderBlockTorch1Data.east);
 		TessellatorWrapper.tessUV(RenderBlockTorch1Data.south);
