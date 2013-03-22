@@ -13,7 +13,11 @@ public class Trace
 		int len;
 		
 		sContext = String.valueOf(context);
-		sContext = sContext.substring(sContext.lastIndexOf(".") + 1, sContext.lastIndexOf("@"));
+		try
+		{
+			sContext = sContext.substring(sContext.lastIndexOf(".") + 1, sContext.lastIndexOf("@"));
+		}
+		catch ( Exception err )	{ }
 		
 		System.out.print("[" + sContext + "]");
 		
