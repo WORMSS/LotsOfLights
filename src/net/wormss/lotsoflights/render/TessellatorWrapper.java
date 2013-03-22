@@ -91,4 +91,10 @@ class TessellatorWrapper
 	{
 		tess().setColorOpaque(red, green, blue);
 	}
+
+	public static void disableColour()
+	{
+		tess().disableColor();
+		
+	}
 }
