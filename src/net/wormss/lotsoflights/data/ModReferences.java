@@ -23,4 +23,5 @@ public final class ModReferences
 	private static final String	TR				= "/mods/" + ID + "/textures/";
 	private static final String	TR_B			= TR + "blocks/";
 	public static final String	TEXTURE_TORCH1	= TR_B + NAME_TORCH_1 + ".png";
+	public static final String	TEXTURE_POLE	= TR_B + NAME_POLE + ".png";;
 }

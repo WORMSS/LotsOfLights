@@ -11,8 +11,8 @@ public class ClientProxy extends CommonProxy
 	@Override
 	public void registerRenderers()
 	{
-		MinecraftForgeClient.preloadTexture(ModReferences.TEXTURE_BLOCKS);
 		MinecraftForgeClient.preloadTexture(ModReferences.TEXTURE_TORCH1);
+		MinecraftForgeClient.preloadTexture(ModReferences.TEXTURE_POLE);
 		
 		RenderBlockTorch1.renderID = RenderingRegistry.getNextAvailableRenderId();
 		RenderBlockPole.renderID = RenderingRegistry.getNextAvailableRenderId();
