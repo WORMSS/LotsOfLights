@@ -3,7 +3,6 @@ package net.wormss.lotsoflights.items;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.wormss.lotsoflights.data.ModReferences;
-import net.wormss.lotsoflights.proxy.CommonProxy;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
 public class ModItem extends Item
