@@ -6,6 +6,15 @@ public class Trace
 	{
 		normal(context.toString(), text);
 	}
+	
+	public static void normal(Object context, StackTraceElement[] stack)
+	{
+		for ( StackTraceElement ste : stack )
+		{
+			System.out.println(ste);
+		}
+	}
+	
 	public static void normal(Object context, Object... text)
 	{
 		String sContext;
