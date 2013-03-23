@@ -3,6 +3,7 @@ package net.wormss.lotsoflights.render;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.RenderBlocks;
 import net.minecraft.world.IBlockAccess;
+import net.wormss.utils.Trace;
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 
 public class RenderBlockTorch1 implements ISimpleBlockRenderingHandler
@@ -25,7 +26,7 @@ public class RenderBlockTorch1 implements ISimpleBlockRenderingHandler
 	{
 		TessellatorWrapper.setPosition(x, y, z);
 		TessellatorWrapper.setBrightness(1);
-		TessellatorWrapper.disableColour();
+		Trace.normal(this, "Torch1");
 		TessellatorWrapper.tessUV(RenderBlockTorch1Data.north);
 		TessellatorWrapper.tessUV(RenderBlockTorch1Data.east);
 		TessellatorWrapper.tessUV(RenderBlockTorch1Data.south);
