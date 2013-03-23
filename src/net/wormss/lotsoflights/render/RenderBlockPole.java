@@ -24,27 +24,23 @@ public class RenderBlockPole implements ISimpleBlockRenderingHandler
 		TessellatorWrapper.setPosition(x, y, z);
 		TessellatorWrapper.setBrightness(1);
 		
-		TessellatorWrapper.setColour(0x0, 0xF, 0xF);
-		TessellatorWrapper.tess(RenderBlockPoleData.north);
-		TessellatorWrapper.tess(RenderBlockPoleData.east);
-		TessellatorWrapper.tess(RenderBlockPoleData.south);
-		TessellatorWrapper.tess(RenderBlockPoleData.west);
-		
+		TessellatorWrapper.tessUV(RenderBlockPoleData.north);
+		TessellatorWrapper.tessUV(RenderBlockPoleData.east);
+		TessellatorWrapper.tessUV(RenderBlockPoleData.south);
+		TessellatorWrapper.tessUV(RenderBlockPoleData.west);
 		return true;
 	}
 	
 	@Override
 	public boolean shouldRender3DInInventory()
 	{
-		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 	
 	@Override
 	public int getRenderId()
 	{
-		// TODO Auto-generated method stub
-		return 0;
+		return renderID;
 	}
 	
 }
