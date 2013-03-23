@@ -1,7 +1,6 @@
 package net.wormss.lotsoflights.render;
 
 import net.minecraft.client.renderer.Tessellator;
-import net.wormss.utils.NumberUtil;
 
 class TessellatorWrapper
 {
@@ -21,6 +20,8 @@ class TessellatorWrapper
 		TessellatorWrapper.x = x;
 		TessellatorWrapper.y = y;
 		TessellatorWrapper.z = z;
+		
+		tess = Tessellator.instance; // Just refreshing it.
 	}
 	
 	static void tessUV(Point point, UV uv)
@@ -52,49 +53,9 @@ class TessellatorWrapper
 			tessUV(panel);
 		}
 	}
-	
-	static void tess(Point point)
-	{
-		tess().addVertex(
-			x + point.x,
-			y + point.y,
-			z + point.z);
-	}
-	
-	static void tess(PointSet pointSet)
-	{
-		tess(pointSet.get0());
-		tess(pointSet.get1());
-		tess(pointSet.get2());
-		tess(pointSet.get3());
-	}
-	
-	static void tess(Panel panel)
-	{
-		tess(panel.pointSet);
-	}
-	
-	static void tess(PanelCollection panelSet)
-	{
-		for ( Panel panel : panelSet.panels )
-		{
-			tess(panel);
-		}
-	}
 
 	static void setBrightness(float value)
 	{
 		tess().setBrightness((int)(value * 255));
-	}
-
-	public static void setColour(int red, int green, int blue)
-	{
-		tess().setColorOpaque(red, green, blue);
-	}
-
-	public static void disableColour()
-	{
-		tess().disableColor();
-		
 	}
 }
