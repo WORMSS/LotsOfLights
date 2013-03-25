@@ -49,6 +49,7 @@ public class ModRenderBlocks implements ISimpleBlockRenderingHandler
 	{
 		TessellatorWrapper.setPosition(x, y, z);
 		TessellatorWrapper.setBrightness(1);
+		TessellatorWrapper.resetBugFix();
 		
 		if ( modelId == ids.get(ModReferences.NAME_LAMP_1) )
 		{

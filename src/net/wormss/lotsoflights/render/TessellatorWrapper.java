@@ -1,5 +1,7 @@
 package net.wormss.lotsoflights.render;
 
+import org.lwjgl.opengl.GL11;
+
 import net.minecraft.client.renderer.Tessellator;
 
 class TessellatorWrapper
@@ -67,5 +69,10 @@ class TessellatorWrapper
 	public static void start()
 	{
 		tess().startDrawingQuads();
+	}
+
+	public static void resetBugFix()
+	{
+		GL11.glColor4f(1F, 1F, 1F, 1F);
 	}
 }
