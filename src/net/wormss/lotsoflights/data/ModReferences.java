@@ -12,6 +12,7 @@ public final class ModReferences
 	public static final String	PROXY_CLIENT	= "net.wormss.lotsoflights.proxy.ClientProxy";
 	
 	// Setup Interal references
+	public static final String	PREFIX_LANG		= "lol.";
 	public static final String	PREFIX_BLOCK	= "modLotsOfLightsBlock";
 	public static final String	PREFIX_ITEM		= "modLotsOfLightsItem";
 	

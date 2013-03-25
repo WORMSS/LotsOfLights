@@ -3,6 +3,7 @@ package net.wormss.lotsoflights.blocks;
 import net.minecraft.block.material.Material;
 import net.wormss.lotsoflights.data.ModReferences;
 import net.wormss.lotsoflights.render.RenderBlockPole;
+import net.wormss.lotsoflights.tabs.ModCreativeTabs;
 
 public class ModBlockPole extends ModBlock
 {
@@ -10,6 +11,7 @@ public class ModBlockPole extends ModBlock
 	{
 		super(id, material);
 		setBlockBounds(.41F, 0, .41F, 0.59F, 1, 0.59F);
+		setCreativeTab(ModCreativeTabs.lights);
 	}
 	
 	@Override

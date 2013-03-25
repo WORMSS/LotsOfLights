@@ -8,12 +8,14 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.wormss.lotsoflights.data.ModReferences;
 import net.wormss.lotsoflights.render.RenderBlockTorch1;
+import net.wormss.lotsoflights.tabs.ModCreativeTabs;
 
 public class ModBlockTorch1 extends ModBlock
 {
 	public ModBlockTorch1(int id, Material material)
 	{
 		super(id, material);
+		setCreativeTab(ModCreativeTabs.lights);
 	}
 	
 	@Override

@@ -8,6 +8,7 @@ import net.wormss.lotsoflights.data.ModConfiguration;
 import net.wormss.lotsoflights.data.ModReferences;
 import net.wormss.lotsoflights.items.ModItems;
 import net.wormss.lotsoflights.proxy.CommonProxy;
+import net.wormss.lotsoflights.tabs.ModCreativeTabs;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.Mod.Instance;
@@ -33,15 +34,18 @@ public class LotsOfLights
 	public void preInit(FMLPreInitializationEvent __e)
 	{
 		ModConfiguration.init(__e.getModConfigurationDirectory());
+		
+		ModLanguage.register();
+		
+		ModCreativeTabs.register();
+		ModBlocks.register();
+		ModItems.register();
 	}
 	
 	@Init
 	public void init(FMLInitializationEvent __e)
 	{
 		proxy.registerRenderers();
-		
-		ModBlocks.register();
-		ModItems.register();
 		
 		_addDebugRecipes();
 		_addRecipies();
