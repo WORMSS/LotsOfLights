@@ -2,22 +2,13 @@ package net.wormss.lotsoflights.blocks;
 
 import net.minecraft.block.material.Material;
 import net.wormss.lotsoflights.data.ModReferences;
-import net.wormss.lotsoflights.render.RenderBlockPole;
-import net.wormss.lotsoflights.tabs.ModCreativeTabs;
+import net.wormss.lotsoflights.render.ModRenderBlocks;
 
 public class ModBlockPole extends ModBlock
 {
 	public ModBlockPole(int id, Material material)
 	{
 		super(id, material);
-		setBlockBounds(.41F, 0, .41F, 0.59F, 1, 0.59F);
-		setCreativeTab(ModCreativeTabs.lights);
-	}
-	
-	@Override
-	public int getRenderType()
-	{
-		return RenderBlockPole.renderID;
 	}
 	
 	@Override
@@ -30,12 +21,6 @@ public class ModBlockPole extends ModBlock
 	public boolean renderAsNormalBlock()
 	{
 		return false;
-	}
-	
-	@Override
-	public String getTextureFile()
-	{
-		return ModReferences.TEXTURE_POLE;
 	}
 	
 }

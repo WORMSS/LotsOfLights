@@ -7,12 +7,12 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.wormss.lotsoflights.data.ModReferences;
-import net.wormss.lotsoflights.render.RenderBlockTorch1;
+import net.wormss.lotsoflights.render.ModRenderBlocks;
 import net.wormss.lotsoflights.tabs.ModCreativeTabs;
 
-public class ModBlockTorch1 extends ModBlock
+public class ModBlockLamp extends ModBlock
 {
-	public ModBlockTorch1(int id, Material material)
+	public ModBlockLamp(int id, Material material)
 	{
 		super(id, material);
 		setCreativeTab(ModCreativeTabs.lights);
@@ -20,7 +20,7 @@ public class ModBlockTorch1 extends ModBlock
 	
 	@Override
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side,
-		float par7,	float par8, float par9)
+		float xFace, float yFace, float zFace)
 	{
 		ItemStack itemStack;
 		int metadata;
@@ -59,12 +59,6 @@ public class ModBlockTorch1 extends ModBlock
 	}
 	
 	@Override
-	public int getRenderType()
-	{
-		return RenderBlockTorch1.renderID;
-	}
-	
-	@Override
 	public boolean isOpaqueCube()
 	{
 		return false;
@@ -79,7 +73,7 @@ public class ModBlockTorch1 extends ModBlock
 	@Override
 	public String getTextureFile()
 	{
-		return ModReferences.TEXTURE_TORCH1;
+		return ModReferences.TEXTURE_LAMP1;
 	}
 	
 }

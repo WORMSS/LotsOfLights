@@ -1,7 +1,7 @@
 package net.wormss.lotsoflights.render;
 
 
-class RenderBlockPoleData
+class Data_Pole
 {
 	private static final UVSet metal	= new UVRect(0, 0, 1, 1);
 	private static final UVSet part		= new UVRect(0, 0, 0.01, 0.01);
