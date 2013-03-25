@@ -27,7 +27,21 @@ public class ModRenderBlocks implements ISimpleBlockRenderingHandler
 	@Override
 	public void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer)
 	{
+		TessellatorWrapper.setPosition(0, 0, 0);
+		TessellatorWrapper.setBrightness(1);
+
+		TessellatorWrapper.start();
 		
+		if ( modelId == ids.get(ModReferences.NAME_LAMP_1) )
+		{
+			renderLamp1(metadata);
+		}
+		if ( modelId == ids.get(ModReferences.NAME_POLE ) )
+		{
+			renderPole();
+		}
+		
+		TessellatorWrapper.draw();
 	}
 	
 	@Override
@@ -45,8 +59,7 @@ public class ModRenderBlocks implements ISimpleBlockRenderingHandler
 			return renderPole();
 		}
 		
-		
-		return true;
+		return false;
 	}
 	
 	private boolean renderLamp1(int metadata)
@@ -81,7 +94,7 @@ public class ModRenderBlocks implements ISimpleBlockRenderingHandler
 	@Override
 	public boolean shouldRender3DInInventory()
 	{
-		return false;
+		return true;
 	}
 	
 	@Override
