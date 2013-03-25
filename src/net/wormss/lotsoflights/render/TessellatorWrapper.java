@@ -58,4 +58,14 @@ class TessellatorWrapper
 	{
 		tess().setBrightness((int)(value * 255));
 	}
+
+	public static void draw()
+	{
+		tess().draw();
+	}
+
+	public static void start()
+	{
+		tess().startDrawingQuads();
+	}
 }
