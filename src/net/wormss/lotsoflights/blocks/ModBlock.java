@@ -16,18 +16,11 @@ public class ModBlock extends Block
 	{
 		super(id, material);
 	}
-
-	public ModBlock setBlockName(String internalName, String humanName)
-	{
-		setBlockName(internalName);
-		LanguageRegistry.addName(this, humanName);
-		return this;
-	}
 	
 	@Override
 	public Block setBlockName(String internalName)
 	{
-		return super.setBlockName(ModReferences.PREFIX_BLOCK + internalName);
+		return super.setBlockName(ModReferences.PREFIX_LANG + internalName);
 	}
 
 }

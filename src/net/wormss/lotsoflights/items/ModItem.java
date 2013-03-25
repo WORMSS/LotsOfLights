@@ -15,18 +15,11 @@ public class ModItem extends Item
 		setMaxStackSize(64);
 		setCreativeTab(CreativeTabs.tabMisc);
 	}
-
-	public ModItem setItemName(String internalName, String humanName)
-	{
-		setItemName(internalName);
-		LanguageRegistry.addName(this, humanName);
-		return this;
-	}
 	
 	@Override
 	public Item setItemName(String internalName)
 	{
-		return super.setItemName(ModReferences.PREFIX_ITEM + internalName);
+		return super.setItemName(ModReferences.PREFIX_LANG + internalName);
 	}
 
 }

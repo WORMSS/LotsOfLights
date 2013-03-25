@@ -22,9 +22,9 @@ final public class ModBlocks
 	public static void register()
 	{
 		torch1 = new ModBlockTorch1(ids.get(ModReferences.NAME_TORCH_1), Material.circuits)
-			.setBlockName(ModReferences.NAME_TORCH_1, "Torch 1");
+			.setBlockName(ModReferences.NAME_TORCH_1);
 		pole = new ModBlockPole(ids.get(ModReferences.NAME_POLE), Material.iron)
-			.setBlockName(ModReferences.NAME_POLE, "Pole");
+			.setBlockName(ModReferences.NAME_POLE);
 		
 		GameRegistry.registerBlock(torch1, torch1.getBlockName());
 		GameRegistry.registerBlock(pole, pole.getBlockName());

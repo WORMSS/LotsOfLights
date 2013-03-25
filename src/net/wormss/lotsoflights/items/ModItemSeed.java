@@ -29,6 +29,6 @@ public class ModItemSeed extends ItemSeeds
 	@Override
 	public Item setItemName(String internalName)
 	{
-		return super.setItemName(ModReferences.PREFIX_ITEM + internalName);
+		return super.setItemName(ModReferences.PREFIX_LANG + internalName);
 	}
 }

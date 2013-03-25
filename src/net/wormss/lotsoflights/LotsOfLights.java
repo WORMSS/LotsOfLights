@@ -5,6 +5,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.wormss.lotsoflights.blocks.ModBlocks;
 import net.wormss.lotsoflights.data.ModConfiguration;
+import net.wormss.lotsoflights.data.ModLanguage;
 import net.wormss.lotsoflights.data.ModReferences;
 import net.wormss.lotsoflights.items.ModItems;
 import net.wormss.lotsoflights.proxy.CommonProxy;
