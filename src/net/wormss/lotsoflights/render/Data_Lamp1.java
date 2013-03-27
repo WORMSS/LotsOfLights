@@ -10,15 +10,15 @@ final class Data_Lamp1
 	private static final Point p_topLeftInner		= new Point(.154, .622, .027);
 	private static final Point p_bottomLeftInner	= new Point(.26, .125, .132);
 	private static final Point p_bottomLeft			= new Point(.159, 0, .159);
-	private static final Point p_topLeftInset		= p_topLeftInner.clone().offsetZ(.1);
-	private static final Point p_bottomLeftInset	= p_bottomLeftInner.clone().offsetZ(.1);
+	private static final Point p_topLeftInset		= p_topLeftInner.clone().offset(0, 0, .1);
+	private static final Point p_bottomLeftInset	= p_bottomLeftInner.clone().offset(0, 0, .1);
 	
 	private static final Point p_topRight			= p_topLeft.clone().flipX();
 	private static final Point p_topRightInner		= p_topLeftInner.clone().flipX();
 	private static final Point p_bottomRightInner	= p_bottomLeftInner.clone().flipX();
 	private static final Point p_bottomRight		= p_bottomLeft.clone().flipX();
-	private static final Point p_topRightInset		= p_topRightInner.clone().offsetZ(.1);
-	private static final Point p_bottomRightInset	= p_bottomRightInner.clone().offsetZ(.1);
+	private static final Point p_topRightInset		= p_topRightInner.clone().offset(0, 0, .1);
+	private static final Point p_bottomRightInset	= p_bottomRightInner.clone().offset(0, 0, .1);
 	
 	private static final Point p_topPoint			= new Point(.5, 1, .5);
 	private static final Point p_bottomLeftInvert	= p_bottomLeft.clone().flipZ();

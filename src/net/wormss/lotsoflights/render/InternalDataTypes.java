@@ -28,6 +28,15 @@ class PanelCollection
 		return this;
 	}
 	
+	PanelCollection offset(double x, double y, double z)
+	{
+		for ( Panel p : panels )
+		{
+			p.offset(x, y, z);
+		}
+		return this;
+	}
+	
 	@Override
 	protected PanelCollection clone()
 	{
@@ -42,6 +51,10 @@ class PanelCollection
 		return new PanelCollection(panels);
 	}
 	
+	public int size()
+	{
+		return panels.size();
+	}
 }
 
 class PointSet
@@ -72,6 +85,15 @@ class PointSet
 	Point get2(){ return p[2]; }
 	Point get3(){ return p[3]; }
 	
+	PointSet offset(double x, double y, double z)
+	{
+		for ( Point p : this.p )
+		{
+			p.offset(x, y, z);
+		}
+		return this;
+	}
+	
 	@Override
 	protected PointSet clone()
 	{
@@ -95,6 +117,16 @@ class UVSet
 	UV get1() { return uv[1]; }
 	UV get2() { return uv[2]; }
 	UV get3() { return uv[3]; }
+	
+	UVSet rotateCW()
+	{
+		UV temp = uv[3];
+		uv[3] = uv[2];
+		uv[2] = uv[1];
+		uv[1] = uv[0];
+		uv[0] = temp;
+		return this;
+	}
 }
 
 class UVRect extends UVSet
@@ -118,6 +150,12 @@ class Panel
 	{
 		this.pointSet = pointSet;
 		this.uvSet = uvSet;
+	}
+	
+	Panel offset(double x, double y, double z)
+	{
+		pointSet.offset(x, y, z);
+		return this;
 	}
 	
 	Panel rotate90()
@@ -149,9 +187,14 @@ class Point
 	Point flipX() { x = 1-x; return this; }
 	Point flipY() { y = 1-y; return this; }
 	Point flipZ() { z = 1-z; return this; }
-	Point offsetX(double x) { this.x+=x; return this; }
-	Point offsetY(double y) { this.y+=y; return this; }
-	Point offsetZ(double z) { this.z+=z; return this; }
+	Point offset(double x, double y, double z)
+	{
+		this.x+=x;
+		this.y+=y;
+		this.z+=z;
+		return this;
+	}
+	
 	Point rotate()
 	{
 		double tmp = x;
