@@ -208,6 +208,12 @@ class Point
 	{
 		return new Point(x, y, z);
 	}
+	
+	@Override
+	public String toString()
+	{
+		return "Point x=" + x + " y=" + y + " z=" + z;
+	}
 }
 
 class UV
@@ -219,5 +225,17 @@ class UV
 	{
 		this.u = u;
 		this.v = v;
+	}
+}
+
+class UVLink
+{
+	String name;
+	UVSet uvSet;
+	
+	public UVLink(String name, UVSet uvSet)
+	{
+		this.name = name;
+		this.uvSet = uvSet;
 	}
 }

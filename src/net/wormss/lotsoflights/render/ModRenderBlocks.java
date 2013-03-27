@@ -63,6 +63,13 @@ public class ModRenderBlocks implements ISimpleBlockRenderingHandler
 		return false;
 	}
 	
+	private boolean renderSubwaySideLamp()
+	{
+		Data_SubwaySideLamp.init();
+		TessellatorWrapper.tessUV(Data_SubwaySideLamp.north);
+		return true;
+	}
+
 	private boolean renderLamp1(int metadata)
 	{
 		TessellatorWrapper.tessUV(Data_Lamp1.north);
