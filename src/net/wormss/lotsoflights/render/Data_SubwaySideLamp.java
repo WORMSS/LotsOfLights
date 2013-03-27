@@ -2,7 +2,7 @@ package net.wormss.lotsoflights.render;
 
 class Data_SubwaySideLamp
 {
-	private static UVSet defaultUV = new UVRect(0, 0, 1/3, 1);
+	private static UVSet defaultUV	= new UVRect(0, 0, 1/3, 1);
 	private static UVSet dipUV		= new UVRect(1/3, 0, 1/3, 1);
 	private static UVSet glassUV	= new UVRect(2/3, 0, 1/3, 1);
 	

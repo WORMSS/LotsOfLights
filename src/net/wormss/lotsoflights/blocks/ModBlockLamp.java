@@ -7,7 +7,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.wormss.lotsoflights.data.ModReferences;
-import net.wormss.lotsoflights.render.ModRenderBlocks;
 import net.wormss.lotsoflights.tabs.ModCreativeTabs;
 
 public class ModBlockLamp extends ModBlock

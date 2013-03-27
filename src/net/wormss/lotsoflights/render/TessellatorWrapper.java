@@ -1,8 +1,8 @@
 package net.wormss.lotsoflights.render;
 
-import org.lwjgl.opengl.GL11;
-
 import net.minecraft.client.renderer.Tessellator;
+
+import org.lwjgl.opengl.GL11;
 
 class TessellatorWrapper
 {
