@@ -10,7 +10,7 @@ public class ModCreativeTabs
 
 	public static void register()
 	{
-		lights = new ModCreativeTab(CreativeTabs.getNextID(), ModReferences.NAME_TAB_LIGHTS)
+		lights = new ModCreativeTab(CreativeTabs.getNextID(), ModReferences.TAB_LIGHTS)
 			.setTabIconItemIndex(Block.torchWood.blockID);
 	}
 	

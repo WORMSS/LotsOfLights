@@ -13,26 +13,18 @@ public class ModRenderBlocks implements ISimpleBlockRenderingHandler
 {
 	public static final Map<String, Integer> ids = new HashMap<String,Integer>();
 	
-	private static ModRenderBlocks _instance; 
-	public static ModRenderBlocks instance()
-	{
-		if ( _instance == null )
-		{
-			_instance = new ModRenderBlocks();
-		}
-		
-		return _instance;
-	}
+	public static final ModRenderBlocks instance = new ModRenderBlocks();
 	
 	@Override
 	public void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer)
 	{
 		TessellatorWrapper.setPosition(0, 0, 0);
+		TessellatorWrapper.setUVPosition(block.getBlockTextureFromSide(0));
 		TessellatorWrapper.setBrightness(1);
 
 		TessellatorWrapper.start();
 		
-		if ( modelId == ids.get(ModReferences.NAME_LAMP_1) )
+		if ( modelId == ids.get(ModReferences.NAME_VICTORIAN_LAMP) )
 		{
 			renderLamp1(metadata);
 		}
@@ -48,10 +40,11 @@ public class ModRenderBlocks implements ISimpleBlockRenderingHandler
 	public boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer)
 	{
 		TessellatorWrapper.setPosition(x, y, z);
+		TessellatorWrapper.setUVPosition(block.getBlockTexture(world, x, y, z, 0));
 		TessellatorWrapper.setBrightness(1);
 		TessellatorWrapper.resetBugFix();
 		
-		if ( modelId == ids.get(ModReferences.NAME_LAMP_1) )
+		if ( modelId == ids.get(ModReferences.NAME_VICTORIAN_LAMP) )
 		{
 			return renderLamp1(world.getBlockMetadata(x, y, z));
 		}
@@ -60,7 +53,7 @@ public class ModRenderBlocks implements ISimpleBlockRenderingHandler
 			return renderPole();
 		}
 		
-		return false;
+		return renderer.renderStandardBlock(block, x, y, z);
 	}
 	
 	private boolean renderSubwaySideLamp()

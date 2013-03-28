@@ -20,7 +20,7 @@ public class ModConfiguration
 		{
 			config.load();
 			
-			getBlock(ModReferences.NAME_LAMP_1);
+			getBlock(ModReferences.NAME_VICTORIAN_LAMP);
 			getBlock(ModReferences.NAME_POLE);
 			
 		}

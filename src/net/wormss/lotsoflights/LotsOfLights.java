@@ -54,7 +54,7 @@ public class LotsOfLights
 
 	private void _addRecipies()
 	{
-		ItemStack sLight1	= new ItemStack(ModBlocks.torch1, 64);
+		ItemStack sLight1	= new ItemStack(ModBlocks.victorian, 64);
 		ItemStack sPole		= new ItemStack(ModBlocks.pole, 64);
 		
 		GameRegistry.addRecipe(sLight1, "AA", 'A', Block.dirt);

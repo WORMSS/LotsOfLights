@@ -1,6 +1,8 @@
 package net.wormss.lotsoflights.render;
 
 import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.util.Icon;
+import net.wormss.utils.Trace;
 
 import org.lwjgl.opengl.GL11;
 
@@ -10,6 +12,8 @@ class TessellatorWrapper
 	private static int x;
 	private static int y;
 	private static int z;
+	private static MinMax u;
+	private static MinMax v;
 	
 	private static Tessellator tess()
 	{
@@ -25,6 +29,19 @@ class TessellatorWrapper
 		
 		tess = Tessellator.instance; // Just refreshing it.
 	}
+
+	public static void setUVPosition(Icon icon)
+	{
+		setUVPosition(icon.getMinU(), icon.getMaxU(), icon.getMinV(), icon.getMaxV());
+	}
+	
+	public static void setUVPosition(float minU, float maxU, float minV, float maxV)
+	{
+		u = new MinMax(minU, maxU);
+		v = new MinMax(minV, maxV);
+		
+		Trace.normal(TessellatorWrapper.class, u, v);
+	}
 	
 	static void tessUV(Point point, UV uv)
 	{
@@ -32,7 +49,8 @@ class TessellatorWrapper
 			x + point.x,
 			y + point.y,
 			z + point.z,
-			uv.u, uv.v);
+			u.value(uv.u),
+			v.value(uv.v));
 	}
 	
 	static void tessUV(PointSet pointSet, UVSet uvSet)
@@ -76,3 +94,26 @@ class TessellatorWrapper
 		GL11.glColor4f(1F, 1F, 1F, 1F);
 	}
 }
+
+class MinMax
+{
+	float min;
+	float max;
+	MinMax(float min, float max)
+	{
+		this.min = min;
+		this.max = max;
+	}
+	
+	double value(double percent)
+	{
+		return min+((max-min)*percent);
+	}
+	
+	@Override
+	public String toString()
+	{
+		return "[" + min + ", " + max + "]";
+	}
+}
+

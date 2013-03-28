@@ -15,18 +15,14 @@ public final class ModReferences
 	public static final String	PREFIX_LANG		= "lol.";
 	
 	// Setup Internal names
-	public static final String	NAME_LAMP_1		= "lamp1";
-	public static final String	NAME_POLE		= "pole";
-	public static final String	NAME_TAB_LIGHTS	= "lights";
+	public static final String	NAME_VICTORIAN_LAMP		= "lamp1";
+	public static final String	NAME_POLE				= "pole";
+	public static final String	NAME_SUBWAY_SIDE_LAMP	= "subwaySide";
+	
+	// Setup Creative Tab
+	public static final String	TAB_LIGHTS			= "lights";
 	
 	// Setup of Resources
 	private static final String RES				= "/mods/" + ID + "/";
-	private static final String	RES_TEX			= RES + "textures/";
-	private static final String	RES_TEX_B		= RES_TEX + "blocks/";
-	private static final String RES_TEX_I		= RES_TEX + "items/";
-	
 	public static final String	LANG_FOLDER		= RES + "lang/";
-	public static final String	TEXTURE_LAMP1	= RES_TEX_B + NAME_LAMP_1 + ".png";
-	public static final String	TEXTURE_POLE	= RES_TEX_B + NAME_POLE + ".png";
-	
 }

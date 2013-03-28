@@ -6,7 +6,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import net.wormss.lotsoflights.data.ModReferences;
 import net.wormss.lotsoflights.tabs.ModCreativeTabs;
 
 public class ModBlockLamp extends ModBlock
@@ -40,7 +39,7 @@ public class ModBlockLamp extends ModBlock
 					metadata = 0;
 				}
 				
-				world.setBlockMetadataWithNotify(x, y, z, metadata);
+				world.setBlockMetadataWithNotify(x, y, z, metadata, 3);
 				return true;
 			}
 		}
@@ -67,12 +66,6 @@ public class ModBlockLamp extends ModBlock
 	public boolean renderAsNormalBlock()
 	{
 		return false;
-	}
-	
-	@Override
-	public String getTextureFile()
-	{
-		return ModReferences.TEXTURE_LAMP1;
 	}
 	
 }

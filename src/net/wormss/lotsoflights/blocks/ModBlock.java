@@ -2,17 +2,16 @@ package net.wormss.lotsoflights.blocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IconRegister;
 import net.wormss.lotsoflights.data.ModReferences;
 import net.wormss.lotsoflights.render.ModRenderBlocks;
+import net.wormss.utils.Trace;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class ModBlock extends Block
 {
 	protected String _internalName;
-	
-	public ModBlock(int id, int iconIndex, Material material)
-	{
-		super(id, iconIndex, material);
-	}
 	
 	public ModBlock(int id, Material material)
 	{
@@ -26,7 +25,7 @@ public class ModBlock extends Block
 	}
 	
 	@Override
-	public ModBlock setBlockName(String internalName)
+	public ModBlock setUnlocalizedName(String internalName)
 	{
 		_internalName = internalName;
 		
@@ -35,13 +34,7 @@ public class ModBlock extends Block
 			ModRenderBlocks.ids.put(_internalName, 0);
 		}
 		
-		super.setBlockName(ModReferences.PREFIX_LANG + internalName);
-		return this;
-	}
-	
-	public ModBlock setTextureFile(String texture)
-	{
-		super.setTextureFile(texture);
+		super.setUnlocalizedName(ModReferences.PREFIX_LANG + internalName);
 		return this;
 	}
 	
@@ -49,6 +42,13 @@ public class ModBlock extends Block
 	public int getRenderType()
 	{
 		return ModRenderBlocks.ids.get(_internalName);
+	}
+	
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void registerIcons(IconRegister iconRegister)
+	{
+		blockIcon = iconRegister.registerIcon(ModReferences.ID + ":" + getUnlocalizedName2());
 	}
 
 }
