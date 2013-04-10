@@ -11,10 +11,4 @@ public class ModItemSeed extends ItemSeeds
 	{
 		super(id, cropID, Block.tilledField.blockID);
 	}
-
-	@Override
-	public Item setUnlocalizedName(String internalName)
-	{
-		return super.setUnlocalizedName(ModReferences.PREFIX_LANG + internalName);
-	}
 }

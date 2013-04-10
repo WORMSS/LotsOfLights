@@ -10,7 +10,8 @@ public class ClientProxy extends CommonProxy
 	public void registerRenderers()
 	{
 		_setupBlockRender(ModReferences.NAME_VICTORIAN_LAMP);
-		_setupBlockRender(ModReferences.NAME_POLE);
+		_setupBlockRender(ModReferences.NAME_VICTORIAN_POLE);
+		_setupBlockRender(ModReferences.NAME_PLATFORM_SIDE_LAMP);
 	}
 	
 	private void _setupBlockRender(String name)

@@ -1,7 +1,13 @@
 package net.wormss.lotsoflights.render;
 
+import java.util.Map;
+
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.util.Icon;
+import net.wormss.lotsoflights.model.Face;
+import net.wormss.lotsoflights.model.UV;
+import net.wormss.lotsoflights.model.Vector;
+import net.wormss.lotsoflights.model.WavefrontObjReader;
 import net.wormss.utils.Trace;
 
 import org.lwjgl.opengl.GL11;
@@ -12,8 +18,9 @@ class TessellatorWrapper
 	private static int x;
 	private static int y;
 	private static int z;
-	private static MinMax u;
-	private static MinMax v;
+	private static Icon icon;
+	private static Map<String, Icon> iconPool;
+	private static UVSet[] texturePool;
 	
 	private static Tessellator tess()
 	{
@@ -29,49 +36,74 @@ class TessellatorWrapper
 		
 		tess = Tessellator.instance; // Just refreshing it.
 	}
-
-	public static void setUVPosition(Icon icon)
-	{
-		setUVPosition(icon.getMinU(), icon.getMaxU(), icon.getMinV(), icon.getMaxV());
-	}
 	
-	public static void setUVPosition(float minU, float maxU, float minV, float maxV)
+	private static void render(Vector vector, UV uv)
 	{
-		u = new MinMax(minU, maxU);
-		v = new MinMax(minV, maxV);
-		
-		Trace.normal(TessellatorWrapper.class, u, v);
-	}
-	
-	static void tessUV(Point point, UV uv)
-	{
+		Trace.normal(TessellatorWrapper.class, icon, uv);
 		tess().addVertexWithUV(
-			x + point.x,
-			y + point.y,
-			z + point.z,
-			u.value(uv.u),
-			v.value(uv.v));
+			x + vector.x,
+			y + vector.y,
+			z + vector.z,
+			icon.getInterpolatedU(16 * uv.u),
+			icon.getInterpolatedV(16 * uv.v)
+		);
+		
+		Trace.normal(TessellatorWrapper.class, "drawing vector");
 	}
 	
-	static void tessUV(PointSet pointSet, UVSet uvSet)
+	static void render(Face face, UVSet uvs)
 	{
-		tessUV(pointSet.get0(), uvSet.get0());
-		tessUV(pointSet.get1(), uvSet.get1());
-		tessUV(pointSet.get2(), uvSet.get2());
-		tessUV(pointSet.get3(), uvSet.get3());
-	}
-	
-	static void tessUV(Panel panel)
-	{
-		tessUV(panel.pointSet, panel.uvSet);
-	}
-	
-	static void tessUV(PanelCollection panelSet)
-	{
-		for ( Panel panel : panelSet.panels )
+		for ( int i = 0; i < 4; i++ )
 		{
-			tessUV(panel);
+			render(face.vectors.get(i), uvs.get(i));
 		}
+	}
+	
+	private static void render(Face face)
+	{
+		setIcon(face.textureName);
+		render(face, findUVSet(face.textureName));
+	}
+	
+	private static UVSet findUVSet(String textureName)
+	{
+		for ( UVSet uv : texturePool )
+		{
+			if ( uv.name.equals(textureName) )
+			{
+				return uv;
+			}
+		}
+		return new UVRect("","");
+	}
+
+	private static void setIcon(String textureName)
+	{
+		Trace.normal(TessellatorWrapper.class, "setIcon", textureName);
+		UVSet uv = findUVSet(textureName);
+		
+		if ( uv != null )
+		{
+			icon = iconPool.get(uv.iconName);
+		}
+		else
+		{
+			Trace.normal(TessellatorWrapper.class, "Icon Not Found");
+			icon = iconPool.get(iconPool.keySet().toArray(new String[0])[0]);
+		}
+	}
+
+	public static void render(Face[] faces)
+	{
+		for ( Face face : faces )
+		{
+			render(face);
+		}
+	}
+
+	public static void render(WavefrontObjReader obj)
+	{
+		render(obj.faces);
 	}
 
 	static void setBrightness(float value)
@@ -93,27 +125,16 @@ class TessellatorWrapper
 	{
 		GL11.glColor4f(1F, 1F, 1F, 1F);
 	}
-}
 
-class MinMax
-{
-	float min;
-	float max;
-	MinMax(float min, float max)
+	public static void setIconPool(Map<String, Icon> iconPool)
 	{
-		this.min = min;
-		this.max = max;
+		TessellatorWrapper.iconPool = iconPool;
 	}
 	
-	double value(double percent)
+	public static void setTexturePool(UVSet[] texturePool)
 	{
-		return min+((max-min)*percent);
+		TessellatorWrapper.texturePool = texturePool;
 	}
-	
-	@Override
-	public String toString()
-	{
-		return "[" + min + ", " + max + "]";
-	}
+
 }
 

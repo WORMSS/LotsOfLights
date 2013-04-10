@@ -11,7 +11,7 @@ class ModCreativeTab extends CreativeTabs
 	
 	ModCreativeTab(int id, String label)
 	{
-		super(id, ModReferences.PREFIX_LANG + label);
+		super(id, label);
 	}
 	
 	public ModCreativeTab setTabIconItemIndex(int value)

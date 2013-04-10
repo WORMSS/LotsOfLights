@@ -6,7 +6,11 @@ import java.util.Map;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.RenderBlocks;
 import net.minecraft.world.IBlockAccess;
+import net.wormss.lotsoflights.blocks.ModBlock;
+import net.wormss.lotsoflights.blocks.ModBlockLamp;
+import net.wormss.lotsoflights.blocks.ModBlockPole;
 import net.wormss.lotsoflights.data.ModReferences;
+import net.wormss.utils.Trace;
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 
 public class ModRenderBlocks implements ISimpleBlockRenderingHandler
@@ -19,83 +23,84 @@ public class ModRenderBlocks implements ISimpleBlockRenderingHandler
 	public void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer)
 	{
 		TessellatorWrapper.setPosition(0, 0, 0);
-		TessellatorWrapper.setUVPosition(block.getBlockTextureFromSide(0));
 		TessellatorWrapper.setBrightness(1);
-
+		TessellatorWrapper.setIconPool(((ModBlock)block).getIconPool());
 		TessellatorWrapper.start();
 		
 		if ( modelId == ids.get(ModReferences.NAME_VICTORIAN_LAMP) )
 		{
-			renderLamp1(metadata);
+			renderVictorianLamp(metadata);
 		}
-		if ( modelId == ids.get(ModReferences.NAME_POLE ) )
+		else if ( modelId == ids.get(ModReferences.NAME_VICTORIAN_POLE ) )
 		{
 			renderPole();
 		}
 		
 		TessellatorWrapper.draw();
+		
+		renderer.clearOverrideBlockTexture();
 	}
 	
 	@Override
 	public boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer)
 	{
 		TessellatorWrapper.setPosition(x, y, z);
-		TessellatorWrapper.setUVPosition(block.getBlockTexture(world, x, y, z, 0));
 		TessellatorWrapper.setBrightness(1);
 		TessellatorWrapper.resetBugFix();
 		
+		Trace.normal(this, "Rendering", modelId, ids);
+		TessellatorWrapper.setIconPool(((ModBlock)block).getIconPool());
+		
 		if ( modelId == ids.get(ModReferences.NAME_VICTORIAN_LAMP) )
 		{
-			return renderLamp1(world.getBlockMetadata(x, y, z));
+			renderVictorianLamp(world.getBlockMetadata(x, y, z));
 		}
-		if ( modelId == ids.get(ModReferences.NAME_POLE ) )
+		else if ( modelId == ids.get(ModReferences.NAME_VICTORIAN_POLE) )
 		{
-			return renderPole();
+			renderPole();
 		}
-		
-		return renderer.renderStandardBlock(block, x, y, z);
+		else if ( modelId == ids.get(ModReferences.NAME_PLATFORM_SIDE_LAMP) )
+		{
+			renderPlatformSide(world.getBlockMetadata(x, y, z));
+		}
+		else
+		{
+			renderer.renderStandardBlock(block, x, y, z);
+		}
+		return true; 
 	}
 	
-	private boolean renderSubwaySideLamp()
+	private void renderPlatformSide(int metadata)
 	{
 		Data_SubwaySideLamp.init();
-		TessellatorWrapper.tessUV(Data_SubwaySideLamp.north);
-		return true;
+		TessellatorWrapper.setTexturePool(metadata == 1 ? Data_SubwaySideLamp.texturesOn : Data_SubwaySideLamp.texturesOff);
+		TessellatorWrapper.render(Data_SubwaySideLamp.obj);
 	}
 
-	private boolean renderLamp1(int metadata)
+	private void renderSubwaySideLamp()
 	{
-		TessellatorWrapper.tessUV(Data_Lamp1.north);
-		TessellatorWrapper.tessUV(Data_Lamp1.east);
-		TessellatorWrapper.tessUV(Data_Lamp1.south);
-		TessellatorWrapper.tessUV(Data_Lamp1.west);
-		TessellatorWrapper.tessUV(Data_Lamp1.bottom);
-		
-		if ( metadata != 1 )
-		{
-			TessellatorWrapper.setBrightness(0);
-		}
-		
-		TessellatorWrapper.tessUV(Data_Lamp1.northGlass);
-		TessellatorWrapper.tessUV(Data_Lamp1.eastGlass);
-		TessellatorWrapper.tessUV(Data_Lamp1.southGlass);
-		TessellatorWrapper.tessUV(Data_Lamp1.westGlass);
-		return true;
+		Data_SubwaySideLamp.init();
+		TessellatorWrapper.render(Data_SubwaySideLamp.obj);
+	}
+
+	private void renderVictorianLamp(int metadata)
+	{
+		Data_VictorianLamp.init();
+		TessellatorWrapper.setTexturePool(metadata == 1 ? Data_VictorianLamp.texturesOn : Data_VictorianLamp.texturesOff);
+		TessellatorWrapper.render(Data_VictorianLamp.obj);
 	}
 	
-	private boolean renderPole()
+	private void renderPole()
 	{
-		TessellatorWrapper.tessUV(Data_Pole.north);
-		TessellatorWrapper.tessUV(Data_Pole.east);
-		TessellatorWrapper.tessUV(Data_Pole.south);
-		TessellatorWrapper.tessUV(Data_Pole.west);
-		return true;
+		Data_Pole.init();
+		TessellatorWrapper.setTexturePool(Data_Pole.textures);
+		TessellatorWrapper.render(Data_Pole.obj);
 	}
 	
 	@Override
 	public boolean shouldRender3DInInventory()
 	{
-		return true;
+		return false;
 	}
 	
 	@Override

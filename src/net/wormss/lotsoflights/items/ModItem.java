@@ -15,11 +15,5 @@ public class ModItem extends Item
 		setMaxStackSize(64);
 		setCreativeTab(CreativeTabs.tabMisc);
 	}
-	
-	@Override
-	public Item setUnlocalizedName(String internalName)
-	{
-		return super.setUnlocalizedName(ModReferences.PREFIX_LANG + internalName);
-	}
 
 }
