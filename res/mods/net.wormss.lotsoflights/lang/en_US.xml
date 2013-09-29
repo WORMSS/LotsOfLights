@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
-<properties version="1.0">
-	<comment>English (US) Localization File</comment>
-	<entry key="tile.lol.lamp1.name">Victorian Lamp</entry>
-	<entry key="tile.lol.pole.name">Victorian Pole</entry>
-	<entry key="itemGroup.lol.lights">Lots of Lights</entry>
-</properties>

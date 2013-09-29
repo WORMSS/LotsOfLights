@@ -2,7 +2,7 @@ package net.wormss.lotsoflights.tabs;
 
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
-import net.wormss.lotsoflights.data.ModReferences;
+import net.wormss.lotsoflights.data.R;
 
 public class ModCreativeTabs
 {
@@ -10,7 +10,7 @@ public class ModCreativeTabs
 
 	public static void register()
 	{
-		lights = new ModCreativeTab(CreativeTabs.getNextID(), ModReferences.NAME_TAB_LIGHTS)
+		lights = new ModCreativeTab(CreativeTabs.getNextID(), R.TAB.LIGHTS)
 			.setTabIconItemIndex(Block.torchWood.blockID);
 	}
 	

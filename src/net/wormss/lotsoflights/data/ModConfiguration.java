@@ -4,29 +4,20 @@ import java.io.File;
 
 import net.minecraftforge.common.Configuration;
 import net.wormss.lotsoflights.blocks.ModBlocks;
-import net.wormss.utils.Trace;
+import net.wormss.lotsoflights.data.R;
 
 public class ModConfiguration
 {
 	static Configuration config;
-	public static void init(File configDir)
+	public static void init(File configFile)
 	{
-		String configPath = configDir.getAbsolutePath() + "\\" + ModReferences.ID + ".cfg";
-		File configFile = new File(configPath);
-		
-		config = new Configuration(configFile);
-		
+		ModConfiguration.config = new Configuration(configFile);
 		try
 		{
 			config.load();
-			
-			getBlock(ModReferences.NAME_LAMP_1);
-			getBlock(ModReferences.NAME_POLE);
-			
-		}
-		catch ( Exception err )
-		{
-			Trace.normal(ModConfiguration.class,  err.getStackTrace().toString());
+			getBlock(R.NAME.VICTORIAN_LAMP);
+			getBlock(R.NAME.VICTORIAN_POLE);
+			getBlock(R.NAME.PLATFORM_SIDE_LAMP);
 		}
 		finally
 		{
@@ -36,8 +27,7 @@ public class ModConfiguration
 	
 	private static void getBlock(String name)
 	{
-		int value;
-		value = ModBlocks.ids.get(name);
+		int value = ModBlocks.ids.get(name);
 		value = config.getBlock(name, value).getInt(value);
 		ModBlocks.ids.put(name, value);
 	}

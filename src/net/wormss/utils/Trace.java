@@ -4,36 +4,42 @@ public class Trace
 {
 	public static void normal(Class context, Object... text)
 	{
-		normal(context.toString(), text);
-	}
-	
-	public static void normal(Object context, StackTraceElement[] stack)
-	{
-		for ( StackTraceElement ste : stack )
-		{
-			System.out.println(ste);
-		}
+		normal(context != null ? context.toString() : null, text);
 	}
 	
 	public static void normal(Object context, Object... text)
 	{
+		boolean hasContext;
 		String sContext;
 		int i;
 		int len;
 		
-		sContext = String.valueOf(context);
-		try
+		hasContext = false;
+		if ( context != null )
 		{
-			sContext = sContext.substring(sContext.lastIndexOf(".") + 1, sContext.lastIndexOf("@"));
+			sContext = String.valueOf(context);
+			
+			if ( sContext.startsWith("class ") )
+			{
+				sContext = sContext.substring(sContext.lastIndexOf(".") + 1);
+			}
+			else
+			{
+				sContext = sContext.substring(sContext.lastIndexOf(".") + 1, sContext.lastIndexOf("@"));
+			}
+			
+			System.out.print("[" + sContext + "]");
+			
+			hasContext = true;
 		}
-		catch ( Exception err )	{ }
-		
-		System.out.print("[" + sContext + "]");
 		
 		len = text.length;
 		if ( len > 0 )
 		{
-			System.out.print(": ");
+			if ( hasContext )
+			{
+				System.out.print(": ");
+			}
 			for ( i = 0; i < len - 1; i++ )
 			{
 				System.out.print(text[i] + " ");				
