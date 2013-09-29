@@ -36,8 +36,6 @@ public class LotsOfLights
 	{
 		ModConfiguration.init(__e.getModConfigurationDirectory());
 		
-		ModLanguage.register();
-		
 		ModCreativeTabs.register();
 		ModBlocks.register();
 		ModItems.register();
