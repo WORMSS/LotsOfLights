@@ -47,6 +47,11 @@ public class ModBlock extends Block
 		return ModRenderBlocks.ids.get(getUnlocalizedName2());
 	}
 	
+	public String getUnlocalizedName2()
+	{
+		return getUnlocalizedName().replace("tile.", "");
+	}
+	
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister iconRegister)
