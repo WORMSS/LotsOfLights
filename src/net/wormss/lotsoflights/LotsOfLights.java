@@ -5,15 +5,13 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.wormss.lotsoflights.blocks.ModBlocks;
 import net.wormss.lotsoflights.data.ModConfiguration;
-import net.wormss.lotsoflights.data.ModLanguage;
 import net.wormss.lotsoflights.data.R;
 import net.wormss.lotsoflights.items.ModItems;
 import net.wormss.lotsoflights.proxy.CommonProxy;
 import net.wormss.lotsoflights.tabs.ModCreativeTabs;
 import cpw.mods.fml.common.Mod;
-import cpw.mods.fml.common.Mod.Init;
+import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
-import cpw.mods.fml.common.Mod.PreInit;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
@@ -31,17 +29,17 @@ public class LotsOfLights
 	@SidedProxy(clientSide = R.PROXY.CLIENT, serverSide = R.PROXY.COMMON)
 	public static CommonProxy	proxy;
 	
-	@PreInit
+	@EventHandler
 	public void preInit(FMLPreInitializationEvent __e)
 	{
-		ModConfiguration.init(__e.getModConfigurationDirectory());
+		ModConfiguration.init(__e.getSuggestedConfigurationFile());
 		
 		ModCreativeTabs.register();
 		ModBlocks.register();
 		ModItems.register();
 	}
 	
-	@Init
+	@EventHandler
 	public void init(FMLInitializationEvent __e)
 	{
 		proxy.registerRenderers();

@@ -9,9 +9,9 @@ import net.wormss.lotsoflights.data.R;
 public class ModConfiguration
 {
 	static Configuration config;
-	public static void init(File configDir)
+	public static void init(File configFile)
 	{
-		config = new Configuration(new File(configDir.getAbsolutePath() + "\\" + R.MOD.ID + ".cfg"));
+		ModConfiguration.config = new Configuration(configFile);
 		try
 		{
 			config.load();
