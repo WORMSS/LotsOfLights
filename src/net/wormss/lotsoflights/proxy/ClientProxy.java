@@ -16,9 +16,9 @@ public class ClientProxy extends CommonProxy
 	
 	private void _setupBlockRender(String name)
 	{
-		/*int id = RenderingRegistry.getNextAvailableRenderId();
+		int id = RenderingRegistry.getNextAvailableRenderId();
 		ModRenderBlocks.ids.put(name, id);
-		RenderingRegistry.registerBlockHandler(id, ModRenderBlocks.instance);*/
+		RenderingRegistry.registerBlockHandler(id, ModRenderBlocks.instance);
 	}
 
 }

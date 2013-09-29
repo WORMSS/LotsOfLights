@@ -41,11 +41,11 @@ public class ModBlock extends Block
 		return this;
 	}
 	
-	/*@Override
+	@Override
 	public int getRenderType()
 	{
-		return ModRenderBlocks.ids.get(getUnlocalizedName());
-	}*/
+		return ModRenderBlocks.ids.get(getUnlocalizedName2());
+	}
 	
 	public String getUnlocalizedName2()
 	{
@@ -58,10 +58,10 @@ public class ModBlock extends Block
 	{
 		blockIcon = iconRegister.registerIcon(R.MOD.ID + ":" + getUnlocalizedName2());
 		
-		/*for ( String key : iconPool.keySet() )
+		for ( String key : iconPool.keySet() )
 		{
 			iconPool.put(key, iconRegister.registerIcon(R.MOD.ID + ":" + getUnlocalizedName2() + "_" + key));
-		}*/
+		}
 	}
 	
 	/**
