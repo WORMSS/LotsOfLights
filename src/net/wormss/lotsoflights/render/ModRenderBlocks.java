@@ -37,19 +37,29 @@ public class ModRenderBlocks implements ISimpleBlockRenderingHandler
 		}
 		
 		TessellatorWrapper.draw();
-		
-		renderer.clearOverrideBlockTexture();
 	}
 	
 	@Override
 	public boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer)
 	{
+		ModBlock modBlock;
+		
+		try
+		{
+			modBlock = (ModBlock)block;
+		}
+		catch ( Exception err )
+		{
+			return false;
+		}
+		
+		
 		TessellatorWrapper.setPosition(x, y, z);
 		TessellatorWrapper.setBrightness(1);
 		TessellatorWrapper.resetBugFix();
 		
 		Trace.normal(this, "Rendering", modelId, ids);
-		TessellatorWrapper.setIconPool(((ModBlock)block).getIconPool());
+		TessellatorWrapper.setIconPool(modBlock.getIconPool());
 		
 		if ( modelId == ids.get(R.NAME.VICTORIAN_LAMP) )
 		{
@@ -65,7 +75,7 @@ public class ModRenderBlocks implements ISimpleBlockRenderingHandler
 		}
 		else
 		{
-			renderer.renderStandardBlock(block, x, y, z);
+			Trace.normal(this, "Invalid render id");
 		}
 		return true; 
 	}

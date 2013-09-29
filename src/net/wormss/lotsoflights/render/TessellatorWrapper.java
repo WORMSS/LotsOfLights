@@ -123,7 +123,8 @@ class TessellatorWrapper
 
 	public static void resetBugFix()
 	{
-		GL11.glColor4f(1F, 1F, 1F, 1F);
+		//GL11.glColor4f(1F, 1F, 1F, 1F);
+		tess().setColorOpaque_I(0xFFFFFF);
 	}
 
 	public static void setIconPool(Map<String, Icon> iconPool)

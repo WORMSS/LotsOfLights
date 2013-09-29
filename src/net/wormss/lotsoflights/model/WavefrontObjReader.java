@@ -17,7 +17,7 @@ public class WavefrontObjReader
 {
 	public static final String ENCODE			= "UTF-8";
 	private static final Pattern REGEX_POINT	= Pattern.compile("^v (-?[0-9]+(?:\\.[0-9]*)?) (-?[0-9]+(?:\\.[0-9]*)?) (-?[0-9]+(?:\\.[0-9]*)?)$");
-	private static final Pattern REGEX_FACE		= Pattern.compile("^f (\\d+)(?:/\\d*(?:/\\d+)?)? (\\d+)(?:/\\d*(?:/\\d+)?)? (\\d+)(?:/\\d*(?:/\\d+)?)? (\\d+)(?:/\\d*(?:/\\d+)?)?$");
+	private static final Pattern REGEX_FACE		= Pattern.compile("^f (\\d+)(?:/(\\d*)(?:/(\\d+))?)? (\\d+)(?:/(\\d*)(?:/(\\d+))?)? (\\d+)(?:/(\\d*)(?:/(\\d+))?)? (\\d+)(?:/(\\d*)(?:/(\\d+))?)?$");
 	private static final Pattern REGEX_USE_UV	= Pattern.compile("^usemtl (.+$)");
 	
 	public Face[] faces;
@@ -104,9 +104,9 @@ public class WavefrontObjReader
 						new Face(
 							currentTexture,
 							vPoints.get(Integer.parseInt(matches.group(1)) -1),
-							vPoints.get(Integer.parseInt(matches.group(2)) -1),
-							vPoints.get(Integer.parseInt(matches.group(3)) -1),
-							vPoints.get(Integer.parseInt(matches.group(4)) -1)
+							vPoints.get(Integer.parseInt(matches.group(4)) -1),
+							vPoints.get(Integer.parseInt(matches.group(7)) -1),
+							vPoints.get(Integer.parseInt(matches.group(10)) -1)
 						)
 					);
 				}
