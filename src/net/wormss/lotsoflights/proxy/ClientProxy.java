@@ -1,6 +1,6 @@
 package net.wormss.lotsoflights.proxy;
 
-import net.wormss.lotsoflights.data.ModReferences;
+import net.wormss.lotsoflights.data.R;
 import net.wormss.lotsoflights.render.ModRenderBlocks;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 
@@ -9,9 +9,9 @@ public class ClientProxy extends CommonProxy
 	@Override
 	public void registerRenderers()
 	{
-		_setupBlockRender(ModReferences.NAME_VICTORIAN_LAMP);
-		_setupBlockRender(ModReferences.NAME_VICTORIAN_POLE);
-		_setupBlockRender(ModReferences.NAME_PLATFORM_SIDE_LAMP);
+		_setupBlockRender(R.NAME.VICTORIAN_LAMP);
+		_setupBlockRender(R.NAME.VICTORIAN_POLE);
+		_setupBlockRender(R.NAME.PLATFORM_SIDE_LAMP);
 	}
 	
 	private void _setupBlockRender(String name)

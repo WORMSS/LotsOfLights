@@ -1,6 +1,6 @@
 package net.wormss.lotsoflights.render;
 
-import net.wormss.lotsoflights.data.ModReferences;
+import net.wormss.lotsoflights.data.R;
 import net.wormss.lotsoflights.model.WavefrontObjReader;
 
 class Data_SubwaySideLamp
@@ -32,6 +32,6 @@ class Data_SubwaySideLamp
 		{
 			return;
 		}
-		obj = new WavefrontObjReader(ModReferences.OBJ_PLATFORM_SIDE_LAMP);
+		obj = new WavefrontObjReader(R.OBJ.PLATFORM_SIDE_LAMP);
 	}
 }

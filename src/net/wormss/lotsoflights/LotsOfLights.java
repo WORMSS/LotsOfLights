@@ -6,7 +6,7 @@ import net.minecraft.item.ItemStack;
 import net.wormss.lotsoflights.blocks.ModBlocks;
 import net.wormss.lotsoflights.data.ModConfiguration;
 import net.wormss.lotsoflights.data.ModLanguage;
-import net.wormss.lotsoflights.data.ModReferences;
+import net.wormss.lotsoflights.data.R;
 import net.wormss.lotsoflights.items.ModItems;
 import net.wormss.lotsoflights.proxy.CommonProxy;
 import net.wormss.lotsoflights.tabs.ModCreativeTabs;
@@ -20,15 +20,15 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.registry.GameRegistry;
 
-@Mod(modid = ModReferences.ID, name = ModReferences.NAME, version = ModReferences.VERSION)
+@Mod(modid = R.MOD.ID, name = R.MOD.NAME, version = R.MOD.VERSION)
 @NetworkMod(clientSideRequired = true, serverSideRequired = false)
 public class LotsOfLights
 {
-	@Instance(ModReferences.ID)
+	@Instance(R.MOD.ID)
 	public static LotsOfLights	instance;
 
 	// Says where the client and server 'proxy' code is loaded.
-	@SidedProxy(clientSide = ModReferences.PROXY_CLIENT, serverSide = ModReferences.PROXY_COMMON)
+	@SidedProxy(clientSide = R.PROXY.CLIENT, serverSide = R.PROXY.COMMON)
 	public static CommonProxy	proxy;
 	
 	@PreInit

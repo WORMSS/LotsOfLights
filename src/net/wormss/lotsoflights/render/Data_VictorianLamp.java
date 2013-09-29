@@ -1,6 +1,6 @@
 package net.wormss.lotsoflights.render;
 
-import net.wormss.lotsoflights.data.ModReferences;
+import net.wormss.lotsoflights.data.R;
 import net.wormss.lotsoflights.model.WavefrontObjReader;
 
 final class Data_VictorianLamp
@@ -23,7 +23,7 @@ final class Data_VictorianLamp
 	{
 		if ( obj == null )
 		{
-			obj = new WavefrontObjReader(ModReferences.OBJ_VICTORIAN_LAMP);
+			obj = new WavefrontObjReader(R.OBJ.VICTORIAN_LAMP);
 		}
 	}
 }

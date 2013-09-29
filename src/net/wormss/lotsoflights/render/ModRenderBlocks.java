@@ -9,7 +9,7 @@ import net.minecraft.world.IBlockAccess;
 import net.wormss.lotsoflights.blocks.ModBlock;
 import net.wormss.lotsoflights.blocks.ModBlockLamp;
 import net.wormss.lotsoflights.blocks.ModBlockPole;
-import net.wormss.lotsoflights.data.ModReferences;
+import net.wormss.lotsoflights.data.R;
 import net.wormss.utils.Trace;
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 
@@ -27,11 +27,11 @@ public class ModRenderBlocks implements ISimpleBlockRenderingHandler
 		TessellatorWrapper.setIconPool(((ModBlock)block).getIconPool());
 		TessellatorWrapper.start();
 		
-		if ( modelId == ids.get(ModReferences.NAME_VICTORIAN_LAMP) )
+		if ( modelId == ids.get(R.NAME.VICTORIAN_LAMP) )
 		{
 			renderVictorianLamp(metadata);
 		}
-		else if ( modelId == ids.get(ModReferences.NAME_VICTORIAN_POLE ) )
+		else if ( modelId == ids.get(R.NAME.VICTORIAN_POLE ) )
 		{
 			renderPole();
 		}
@@ -51,15 +51,15 @@ public class ModRenderBlocks implements ISimpleBlockRenderingHandler
 		Trace.normal(this, "Rendering", modelId, ids);
 		TessellatorWrapper.setIconPool(((ModBlock)block).getIconPool());
 		
-		if ( modelId == ids.get(ModReferences.NAME_VICTORIAN_LAMP) )
+		if ( modelId == ids.get(R.NAME.VICTORIAN_LAMP) )
 		{
 			renderVictorianLamp(world.getBlockMetadata(x, y, z));
 		}
-		else if ( modelId == ids.get(ModReferences.NAME_VICTORIAN_POLE) )
+		else if ( modelId == ids.get(R.NAME.VICTORIAN_POLE) )
 		{
 			renderPole();
 		}
-		else if ( modelId == ids.get(ModReferences.NAME_PLATFORM_SIDE_LAMP) )
+		else if ( modelId == ids.get(R.NAME.PLATFORM_SIDE_LAMP) )
 		{
 			renderPlatformSide(world.getBlockMetadata(x, y, z));
 		}

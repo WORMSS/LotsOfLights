@@ -4,20 +4,20 @@ import java.io.File;
 
 import net.minecraftforge.common.Configuration;
 import net.wormss.lotsoflights.blocks.ModBlocks;
-import net.wormss.lotsoflights.data.ModReferences;
+import net.wormss.lotsoflights.data.R;
 
 public class ModConfiguration
 {
 	static Configuration config;
 	public static void init(File configDir)
 	{
-		config = new Configuration(new File(configDir.getAbsolutePath() + "\\" + ModReferences.ID + ".cfg"));
+		config = new Configuration(new File(configDir.getAbsolutePath() + "\\" + R.MOD.ID + ".cfg"));
 		try
 		{
 			config.load();
-			getBlock(ModReferences.NAME_VICTORIAN_LAMP);
-			getBlock(ModReferences.NAME_VICTORIAN_POLE);
-			getBlock(ModReferences.NAME_PLATFORM_SIDE_LAMP);
+			getBlock(R.NAME.VICTORIAN_LAMP);
+			getBlock(R.NAME.VICTORIAN_POLE);
+			getBlock(R.NAME.PLATFORM_SIDE_LAMP);
 		}
 		finally
 		{

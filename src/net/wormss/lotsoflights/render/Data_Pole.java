@@ -1,6 +1,6 @@
 package net.wormss.lotsoflights.render;
 
-import net.wormss.lotsoflights.data.ModReferences;
+import net.wormss.lotsoflights.data.R;
 import net.wormss.lotsoflights.model.WavefrontObjReader;
 
 class Data_Pole
@@ -16,7 +16,7 @@ class Data_Pole
 	{
 		if ( obj == null )
 		{
-			obj = new WavefrontObjReader(ModReferences.OBJ_VICTORIAN_POLE);
+			obj = new WavefrontObjReader(R.OBJ.VICTORIAN_POLE);
 		}
 	}
 	

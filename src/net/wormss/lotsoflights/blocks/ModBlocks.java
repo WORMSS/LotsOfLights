@@ -5,7 +5,7 @@ import java.util.Map;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.wormss.lotsoflights.data.ModReferences;
+import net.wormss.lotsoflights.data.R;
 import net.wormss.lotsoflights.tabs.ModCreativeTabs;
 import cpw.mods.fml.common.registry.GameRegistry;
 
@@ -13,9 +13,9 @@ import cpw.mods.fml.common.registry.GameRegistry;
 final public class ModBlocks
 {
 	public static final Map<String, Integer> ids = new HashMap<String,Integer>(){{
-		put(ModReferences.NAME_VICTORIAN_LAMP, 500);
-		put(ModReferences.NAME_VICTORIAN_POLE, 501);
-		put(ModReferences.NAME_PLATFORM_SIDE_LAMP, 502);
+		put(R.NAME.VICTORIAN_LAMP, 500);
+		put(R.NAME.VICTORIAN_POLE, 501);
+		put(R.NAME.PLATFORM_SIDE_LAMP, 502);
 	}};
 	
 	public static Block victorian;
@@ -24,16 +24,16 @@ final public class ModBlocks
 	
 	public static void register()
 	{
-		victorian = new ModBlockLamp(ids.get(ModReferences.NAME_VICTORIAN_LAMP), Material.circuits)
-			.setUnlocalizedName(ModReferences.NAME_VICTORIAN_LAMP)
+		victorian = new ModBlockLamp(ids.get(R.NAME.VICTORIAN_LAMP), Material.circuits)
+			.setUnlocalizedName(R.NAME.VICTORIAN_LAMP)
 			.addIconName("Side", "Bottom", "Top");
 		
-		subwaySide = new ModBlockLamp(ids.get(ModReferences.NAME_PLATFORM_SIDE_LAMP), Material.circuits)
-			.setUnlocalizedName(ModReferences.NAME_PLATFORM_SIDE_LAMP)
+		subwaySide = new ModBlockLamp(ids.get(R.NAME.PLATFORM_SIDE_LAMP), Material.circuits)
+			.setUnlocalizedName(R.NAME.PLATFORM_SIDE_LAMP)
 			.addIconName("Front", "Side");
 		
-		pole = new ModBlockPole(ids.get(ModReferences.NAME_VICTORIAN_POLE), Material.iron)
-			.setUnlocalizedName(ModReferences.NAME_VICTORIAN_POLE)
+		pole = new ModBlockPole(ids.get(R.NAME.VICTORIAN_POLE), Material.iron)
+			.setUnlocalizedName(R.NAME.VICTORIAN_POLE)
 			.addIconName("Side", "Cap")
 			.setBlockBounds(.41, 0, .41, 0.59, 1, 0.59)
 			.setCreativeTab(ModCreativeTabs.lights);

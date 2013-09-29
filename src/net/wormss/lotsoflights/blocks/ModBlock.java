@@ -7,7 +7,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.util.Icon;
-import net.wormss.lotsoflights.data.ModReferences;
+import net.wormss.lotsoflights.data.R;
 import net.wormss.lotsoflights.render.ModRenderBlocks;
 import net.wormss.utils.Trace;
 import cpw.mods.fml.relauncher.Side;
@@ -51,11 +51,11 @@ public class ModBlock extends Block
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister iconRegister)
 	{
-		blockIcon = iconRegister.registerIcon(ModReferences.ID + ":" + getUnlocalizedName2());
+		blockIcon = iconRegister.registerIcon(R.MOD.ID + ":" + getUnlocalizedName2());
 		
 		for ( String key : iconPool.keySet() )
 		{
-			iconPool.put(key, iconRegister.registerIcon(ModReferences.ID + ":" + getUnlocalizedName2() + "_" + key));
+			iconPool.put(key, iconRegister.registerIcon(R.MOD.ID + ":" + getUnlocalizedName2() + "_" + key));
 		}
 	}
 	

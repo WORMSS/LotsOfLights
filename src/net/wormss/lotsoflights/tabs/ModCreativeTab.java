@@ -1,7 +1,6 @@
 package net.wormss.lotsoflights.tabs;
 
 import net.minecraft.creativetab.CreativeTabs;
-import net.wormss.lotsoflights.data.ModReferences;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
