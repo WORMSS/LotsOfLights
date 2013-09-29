@@ -41,11 +41,11 @@ public class ModBlock extends Block
 		return this;
 	}
 	
-	@Override
+	/*@Override
 	public int getRenderType()
 	{
-		return ModRenderBlocks.ids.get(getUnlocalizedName2());
-	}
+		return ModRenderBlocks.ids.get(getUnlocalizedName());
+	}*/
 	
 	public String getUnlocalizedName2()
 	{
@@ -58,10 +58,10 @@ public class ModBlock extends Block
 	{
 		blockIcon = iconRegister.registerIcon(R.MOD.ID + ":" + getUnlocalizedName2());
 		
-		for ( String key : iconPool.keySet() )
+		/*for ( String key : iconPool.keySet() )
 		{
 			iconPool.put(key, iconRegister.registerIcon(R.MOD.ID + ":" + getUnlocalizedName2() + "_" + key));
-		}
+		}*/
 	}
 	
 	/**
@@ -79,9 +79,8 @@ public class ModBlock extends Block
 	}
 	
 	/**
-	 * Returns the Icon related to the names added by addIconName.
-	 * @param name The name related to the icon.
-	 * @return The icon related to the name, if called before registerIcon, null will be returned. If name invalid, blockIcon will be returned. 
+	 * Retrieve the pool of icons created via the "addIconName" during the registerIcon phase
+	 * @return returns the iconPool. Pool may be blank.
 	 */
 	public Map<String, Icon> getIconPool()
 	{
